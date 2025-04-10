@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 
 import { 
-  Github, Linkedin, Mail, ExternalLink, Code, 
-  ChevronDown, Database, Server, Briefcase
+  Github, Linkedin, Mail, ExternalLink, 
+  ChevronDown, Briefcase
 } from 'lucide-react';
 
 interface EmailJSResponse {
@@ -17,16 +17,6 @@ const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  
-  // Skills data organized by category
-  const skills = {
-    frontend: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "Flutter"],
-    backend: ["Python", "Flask"],
-    database: ["MySQL", "SQLite", "MongoDB"],
-    versionControl: ["Git", "GitHub"],
-    tools: ["VS Code", "Postman", "Cursor"],
-    softSkills: ["Teamwork", "Communication", "Problem Solving"]
-  };
   
   // Project data
   const projects = [
