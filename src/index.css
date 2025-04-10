@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-900 text-white font-inter antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins;
+  }
+}
+
+@layer components {
+  .container {
+    @apply px-4 mx-auto max-w-7xl;
+  }
+  
+  .btn {
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-300 inline-block;
+  }
+  
+  .btn-primary {
+    @apply px-6 py-3 bg-accent-green text-gray-900 rounded-lg font-medium hover:bg-opacity-90 transition-all duration-300;
+  }
+  
+  .btn-outline {
+    @apply px-6 py-3 border border-accent-blue text-accent-blue rounded-lg font-medium hover:bg-accent-blue hover:text-white transition-all duration-300;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-gray-800 text-white rounded-lg font-medium hover:bg-gray-700 transition-all duration-300;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold font-poppins mb-4;
+  }
+  
+  /* Animation utilities */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+}
+
+:root {
+  --accent-green: #10B981;
+  --accent-blue: #3B82F6;
+}
