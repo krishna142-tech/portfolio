@@ -221,7 +221,7 @@ const App = () => {
               <div className="flex flex-wrap gap-4 mt-6">
                 <div className="flex items-center text-accent-green">
                   <Briefcase size={20} className="mr-2" />
-                  <span>Aspiring Full Stack Developer | Building real-world projects while pursuing a B.Tech in Computer Science at Universal AI University, Karjat.</span>
+                  <span>Aspiring Full Stack Developer | Building real-world projects while pursuing a B.Tech in Ai & Ml at Universal AI University, Karjat.</span>
                 </div>
               </div>
             </motion.div>
