@@ -8,8 +8,15 @@ import {
   ChevronDown, Database, Server, Briefcase
 } from 'lucide-react';
 
+interface EmailJSResponse {
+  text: string;
+  status: number;
+}
+
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   
   // Skills data organized by category
   const skills = {
@@ -34,28 +41,22 @@ const App = () => {
   ];
 
   // Handle form submission
-  const [formSubmitted, setFormSubmitted] = useState(false);
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     emailjs.sendForm('service_0gtfwep', 'template_3470q3b', e.currentTarget, 'dxgdiGjq_ydGVPnF5')
-      .then((result: any) => {
+      .then((result: EmailJSResponse) => {
         console.log(result.text);
         setFormSubmitted(true);
         setTimeout(() => setFormSubmitted(false), 3000);
-      }, (error: any) => {
+      }, (error: EmailJSResponse) => {
         console.log(error.text);
       });
   };
 
   // Handle scroll indicator visibility
-  const [isScrolled, setIsScrolled] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 100);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
