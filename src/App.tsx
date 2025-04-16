@@ -369,10 +369,11 @@ const App = () => {
                 <span className="text-gray-300">Unified Mentors</span>
               </div>
               <p className="text-gray-300 mb-4">
-                Working on developing and maintaining web applications using modern technologies to deliver high-quality software solutions.
+                Working on developing and maintaining web applications using modern technologies.
+                Collaborating with cross-functional teams to deliver high-quality software solutions.
               </p>
               <div className="flex flex-wrap gap-2">
-                {["HTML", "CSS", "JavaScript", "Bootstrap", "Python", "React", "Node.js", "MongoDB", "SQL", "TypeScript", "Tailwind CSS", "Firebase"].map((tech) => (
+                {["React", "Node.js", "MongoDB", "Express", "TypeScript", "Tailwind CSS"].map((tech) => (
                   <span key={tech} className="px-3 py-1 bg-gray-800 rounded-full text-sm">
                     {tech}
                   </span>
