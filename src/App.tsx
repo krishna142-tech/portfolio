@@ -5,7 +5,7 @@ import emailjs from '@emailjs/browser';
 
 import { 
   Github, Linkedin, Mail, ExternalLink, 
-  ChevronDown, Briefcase, Code
+  ChevronDown, Briefcase
 } from 'lucide-react';
 
 interface EmailJSResponse {
