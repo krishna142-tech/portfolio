@@ -5,7 +5,7 @@ import emailjs from '@emailjs/browser';
 
 import { 
   Github, Linkedin, Mail, ExternalLink, 
-  ChevronDown, Briefcase
+  ChevronDown, Briefcase, Code
 } from 'lucide-react';
 
 interface EmailJSResponse {
@@ -260,7 +260,7 @@ const App = () => {
             <h2 className="section-title">My Skills</h2>
             <div className="w-20 h-1 bg-accent-blue mx-auto rounded-full"></div>
           </motion.div>
-          
+
           <div className="grid md:grid-cols-2 gap-10">
             {/* Full Stack Development */}
             <div className="bg-gray-800 rounded-2xl p-6 shadow-lg">
@@ -298,7 +298,7 @@ const App = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Programming Skills */}
             <div className="bg-gray-800 rounded-2xl p-6 shadow-lg">
               <h3 className="text-xl font-semibold font-poppins mb-4">Programming Skills</h3>
@@ -339,8 +339,8 @@ const App = () => {
         </div>
       </section>
 
-      {/* Certifications Section */}
-      <section id="certifications" className="py-24 bg-gray-800">
+      {/* Experience Section */}
+      <section id="experience" className="py-24 bg-gray-800">
         <div className="container max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -349,23 +349,36 @@ const App = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="section-title">Certifications & Additional Skills</h2>
-            <div className="w-20 h-1 bg-accent-blue mx-auto rounded-full"></div>
+            <h2 className="section-title">Experience</h2>
+            <div className="w-20 h-1 bg-accent-green mx-auto rounded-full"></div>
           </motion.div>
-          
-          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <ul className="text-gray-300 text-lg leading-relaxed space-y-4">
-              <li><strong>CODING CONTEST CODERarena</strong> - Project Contest Innovations LLP (Feb 2025)</li>
-              <li><strong>Climate Change: Carbon Capture and Storage</strong> - edX Verified Certificate (Feb 2025)</li>
-              <li><strong>Artificial Intelligence Trainee Certification</strong> - Acmegrade (Nov 2024)</li>
-              <li><strong>Prompt Design in Vertex AI</strong> - Google (Nov 2024)</li>
-              <li><strong>Understanding Prompt Engineering</strong> - DataCamp (2024)</li>
-              <li><strong>Data Analysis in Excel</strong> - DataCamp (2024)</li>
-              <li><strong>Sports Leadership</strong>: Active participant in Badminton, Football, and Cricket</li>
-              <li><strong>Soft Skills</strong>: Team Collaboration, Project Management, Communication</li>
-              <li><strong>Robotics</strong>: 3D Modeling, Robot Programming</li>
-              <li><strong>Core Competencies</strong>: Problem-Solving, Analytical Thinking, System Design</li>
-            </ul>
+
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="bg-gray-900 p-6 rounded-lg shadow-lg"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-semibold text-accent-green">Full Stack Web Developer</h3>
+                <span className="text-gray-400">15-04-2025 - Present</span>
+              </div>
+              <div className="flex items-center mb-4">
+                <span className="text-gray-300">Unified Mentors</span>
+              </div>
+              <p className="text-gray-300 mb-4">
+                Working on developing and maintaining web applications using modern technologies to deliver high-quality software solutions.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {["HTML", "CSS", "JavaScript", "Bootstrap", "Python", "React", "Node.js", "MongoDB", "SQL", "TypeScript", "Tailwind CSS", "Firebase"].map((tech) => (
+                  <span key={tech} className="px-3 py-1 bg-gray-800 rounded-full text-sm">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -383,9 +396,70 @@ const App = () => {
             <h2 className="section-title">Featured Projects</h2>
             <div className="w-20 h-1 bg-accent-green mx-auto rounded-full"></div>
           </motion.div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
+            {/* Existing Project */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -10 }}
+              className="bg-gray-900 rounded-2xl overflow-hidden shadow-lg"
+            >
+              <div className="overflow-hidden h-48 flex">
+                {projects[0].images.map((image, imgIndex) => (
+                  <img
+                    key={imgIndex}
+                    src={image}
+                    alt={projects[0].title}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  />
+                ))}
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold font-poppins mb-2">{projects[0].title}</h3>
+                <p className="text-gray-300 mb-4">{projects[0].description}</p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {projects[0].tags.map((tag, tagIndex) => (
+                    <span
+                      key={tagIndex}
+                      className="text-xs px-2 py-1 bg-gray-800 text-accent-green rounded-md"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex space-x-3">
+                  <a
+                    href={projects[0].demoLink}
+                    className="flex items-center space-x-1 px-4 py-2 bg-accent-green text-gray-900 rounded-lg font-medium hover:bg-opacity-90 transition-all duration-300"
+                    target="_blank" rel="noopener noreferrer"
+                  >
+                    <ExternalLink size={16} />
+                    <span>Demo</span>
+                  </a>
+                  <a
+                    href={projects[0].codeLink}
+                    className="flex items-center space-x-1 px-4 py-2 border border-accent-blue text-accent-blue rounded-lg font-medium hover:bg-accent-blue hover:text-white transition-all duration-300"
+                    target="_blank" rel="noopener noreferrer"
+                  >
+                    <Github size={16} />
+                    <span>Code</span>
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* New Projects */}
+            {[
+              "Electric Vehicle Recharge Bunk",
+              "Digital E Gram Panchayat",
+              "Expense Tracker",
+              "Blog Website",
+              "Interactive Resume",
+              "Weather App"
+            ].map((project, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -395,50 +469,67 @@ const App = () => {
                 whileHover={{ y: -10 }}
                 className="bg-gray-900 rounded-2xl overflow-hidden shadow-lg"
               >
-                <div className="overflow-hidden h-48 flex">
-                  {project.images.map((image, imgIndex) => (
-                    <img 
-                      key={imgIndex}
-                      src={image} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    />
-                  ))}
+                <div className="overflow-hidden h-48 flex items-center justify-center bg-gray-800">
+                  <span className="text-accent-green text-lg font-semibold">Coming Soon</span>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold font-poppins mb-2">{project.title}</h3>
-                  <p className="text-gray-300 mb-4">{project.description}</p>
+                  <h3 className="text-xl font-bold font-poppins mb-2">{project}</h3>
+                  <p className="text-gray-300 mb-4">Project details coming soon. Stay tuned for updates!</p>
                   <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tags.map((tag, tagIndex) => (
-                      <span 
-                        key={tagIndex} 
-                        className="text-xs px-2 py-1 bg-gray-800 text-accent-green rounded-md"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                    <span className="text-xs px-2 py-1 bg-gray-800 text-accent-green rounded-md">
+                      Under Development
+                    </span>
                   </div>
                   <div className="flex space-x-3">
-                    <a 
-                      href={project.demoLink}
-                      className="flex items-center space-x-1 px-4 py-2 bg-accent-green text-gray-900 rounded-lg font-medium hover:bg-opacity-90 transition-all duration-300"
-                      target="_blank" rel="noopener noreferrer"
+                    <button
+                      disabled
+                      className="flex items-center space-x-1 px-4 py-2 bg-gray-800 text-gray-400 rounded-lg font-medium cursor-not-allowed"
                     >
                       <ExternalLink size={16} />
                       <span>Demo</span>
-                    </a>
-                    <a 
-                      href={project.codeLink}
-                      className="flex items-center space-x-1 px-4 py-2 border border-accent-blue text-accent-blue rounded-lg font-medium hover:bg-accent-blue hover:text-white transition-all duration-300"
-                      target="_blank" rel="noopener noreferrer"
+                    </button>
+                    <button
+                      disabled
+                      className="flex items-center space-x-1 px-4 py-2 border border-gray-700 text-gray-400 rounded-lg font-medium cursor-not-allowed"
                     >
                       <Github size={16} />
                       <span>Code</span>
-                    </a>
+                    </button>
                   </div>
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications Section */}
+      <section id="certifications" className="py-24 bg-gray-800">
+        <div className="container max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="section-title">Certifications & Additional Skills</h2>
+            <div className="w-20 h-1 bg-accent-blue mx-auto rounded-full"></div>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <ul className="text-gray-300 text-lg leading-relaxed space-y-4">
+              <li><strong>CODING CONTEST CODERarena</strong> - Project Contest Innovations LLP (Feb 2025)</li>
+              <li><strong>Climate Change: Carbon Capture and Storage</strong> - edX Verified Certificate (Feb 2025)</li>
+              <li><strong>Artificial Intelligence Trainee Certification</strong> - Acmegrade (Nov 2024)</li>
+              <li><strong>Prompt Design in Vertex AI</strong> - Google (Nov 2024)</li>
+              <li><strong>Understanding Prompt Engineering</strong> - DataCamp (2024)</li>
+              <li><strong>Data Analysis in Excel</strong> - DataCamp (2024)</li>
+              <li><strong>Sports Leadership</strong>: Active participant in Badminton, Football, and Cricket</li>
+              <li><strong>Soft Skills</strong>: Team Collaboration, Project Management, Communication</li>
+              <li><strong>Robotics</strong>: 3D Modeling, Robot Programming</li>
+              <li><strong>Core Competencies</strong>: Problem-Solving, Analytical Thinking, System Design</li>
+            </ul>
           </div>
         </div>
       </section>
