@@ -80,7 +80,7 @@ const App = () => {
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {['about', 'skills', 'projects', 'contact', 'certifications'].map((item) => (
+            {['about', 'skills', 'experience', 'projects', 'contact', 'certifications'].map((item) => (
               <ScrollLink
                 key={item}
                 to={item}
@@ -106,7 +106,7 @@ const App = () => {
             className="md:hidden bg-gray-800 shadow-lg"
           >
             <div className="container py-4 flex flex-col space-y-4">
-              {['about', 'skills', 'projects', 'contact'].map((item) => (
+              {['about', 'skills', 'experience', 'projects', 'contact', 'certifications'].map((item) => (
                 <ScrollLink
                   key={item}
                   to={item}
@@ -118,6 +118,9 @@ const App = () => {
                   {item}
                 </ScrollLink>
               ))}
+              <a href="https://github.com/krishna142-tech" className="text-gray-300 hover:text-accent-green transition-colors capitalize py-2" target="_blank" rel="noopener noreferrer">
+                GitHub
+              </a>
             </div>
           </motion.div>
         )}
