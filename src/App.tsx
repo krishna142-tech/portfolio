@@ -25,9 +25,25 @@ const App = () => {
       description: "A full-stack web application to manage business inventory. Features include adding, updating, deleting, and searching items; automatic stock alerts; and monthly sales reports.",
       images: ["/Dashboardpagewebsite.png", "/indexpagewebsite.png"],
       tags: ["Python", "Flask", "HTML", "CSS", "JavaScript", "MongoDB"],
-      demoLink: "#",
       codeLink: "https://github.com/krishna142-tech/BizVentory"
-    }
+    },
+    {
+      title: "Electric Vehicle Recharge Bunk",
+      description: "Ampora is a feature-rich, scalable EV charging station management system that streamlines everything — from booking a slot to secure payments and station verification. Designed with modern tools, it offers robust features for users and powerful management capabilities for admins.",
+      images: ["/ampora.png"],
+      tags: ["React.js", "Node.js", "Firebase"],
+      demoLink: "https://ampora.vercel.app/",
+      codeLink: "https://github.com/krishna142-tech/Electric-Vehicle-Charging-Bunk"
+    },
+    {
+      title: "Digital E Gram Panchayat",
+      description: "Project details coming soon. Stay tuned for updates!",
+      images: [],
+      tags: ["Under Development"],
+      demoLink: "#",
+      codeLink: "#"
+    },
+    // Add more projects as needed
   ];
 
   // Handle form submission
@@ -402,68 +418,7 @@ const App = () => {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Existing Project */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10 }}
-              className="bg-gray-900 rounded-2xl overflow-hidden shadow-lg"
-            >
-              <div className="overflow-hidden h-48 flex">
-                {projects[0].images.map((image, imgIndex) => (
-                  <img
-                    key={imgIndex}
-                    src={image}
-                    alt={projects[0].title}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                  />
-                ))}
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold font-poppins mb-2">{projects[0].title}</h3>
-                <p className="text-gray-300 mb-4">{projects[0].description}</p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {projects[0].tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="text-xs px-2 py-1 bg-gray-800 text-accent-green rounded-md"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex space-x-3">
-                  <a
-                    href={projects[0].demoLink}
-                    className="flex items-center space-x-1 px-4 py-2 bg-accent-green text-gray-900 rounded-lg font-medium hover:bg-opacity-90 transition-all duration-300"
-                    target="_blank" rel="noopener noreferrer"
-                  >
-                    <ExternalLink size={16} />
-                    <span>Demo</span>
-                  </a>
-                  <a
-                    href={projects[0].codeLink}
-                    className="flex items-center space-x-1 px-4 py-2 border border-accent-blue text-accent-blue rounded-lg font-medium hover:bg-accent-blue hover:text-white transition-all duration-300"
-                    target="_blank" rel="noopener noreferrer"
-                  >
-                    <Github size={16} />
-                    <span>Code</span>
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* New Projects */}
-            {[
-              "Electric Vehicle Recharge Bunk",
-              "Digital E Gram Panchayat",
-              "Expense Tracker",
-              "Blog Website",
-              "Interactive Resume",
-              "Weather App"
-            ].map((project, index) => (
+            {projects.map((project, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -474,31 +429,51 @@ const App = () => {
                 className="bg-gray-900 rounded-2xl overflow-hidden shadow-lg"
               >
                 <div className="overflow-hidden h-48 flex items-center justify-center bg-gray-800">
-                  <span className="text-accent-green text-lg font-semibold">Coming Soon</span>
+                  {project.images.length > 0 ? (
+                    project.images.map((image, imgIndex) => (
+                      <img
+                        key={imgIndex}
+                        src={image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                      />
+                    ))
+                  ) : (
+                    <span className="text-accent-green text-lg font-semibold">Coming Soon</span>
+                  )}
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold font-poppins mb-2">{project}</h3>
-                  <p className="text-gray-300 mb-4">Project details coming soon. Stay tuned for updates!</p>
+                  <h3 className="text-xl font-bold font-poppins mb-2">{project.title}</h3>
+                  <p className="text-gray-300 mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-6">
-                    <span className="text-xs px-2 py-1 bg-gray-800 text-accent-green rounded-md">
-                      Under Development
-                    </span>
+                    {project.tags.map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        className="text-xs px-2 py-1 bg-gray-800 text-accent-green rounded-md"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                   <div className="flex space-x-3">
-                    <button
-                      disabled
-                      className="flex items-center space-x-1 px-4 py-2 bg-gray-800 text-gray-400 rounded-lg font-medium cursor-not-allowed"
-                    >
-                      <ExternalLink size={16} />
-                      <span>Demo</span>
-                    </button>
-                    <button
-                      disabled
-                      className="flex items-center space-x-1 px-4 py-2 border border-gray-700 text-gray-400 rounded-lg font-medium cursor-not-allowed"
+                    {project.title !== "BizVentory – Inventory Management System"&& project.title !== "Digital E Gram Panchayat" && (
+                      <a
+                        href={project.demoLink}
+                        className="flex items-center space-x-1 px-4 py-2 bg-accent-green text-gray-900 rounded-lg font-medium hover:bg-opacity-90 transition-all duration-300"
+                        target="_blank" rel="noopener noreferrer"
+                      >
+                        <ExternalLink size={16} />
+                        <span>Demo</span>
+                      </a>
+                    )}
+                    <a
+                      href={project.codeLink}
+                      className="flex items-center space-x-1 px-4 py-2 border border-accent-blue text-accent-blue rounded-lg font-medium hover:bg-accent-blue hover:text-white transition-all duration-300"
+                      target="_blank" rel="noopener noreferrer"
                     >
                       <Github size={16} />
                       <span>Code</span>
-                    </button>
+                    </a>
                   </div>
                 </div>
               </motion.div>
