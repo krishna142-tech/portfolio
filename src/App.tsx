@@ -13,6 +13,27 @@ interface EmailJSResponse {
   status: number;
 }
 
+// Tooltip component
+const Tooltip = ({ children, text }: { children: React.ReactNode, text: string }) => {
+  const [show, setShow] = useState(false);
+  return (
+    <span className="relative inline-block"
+      onMouseEnter={() => setShow(true)}
+      onMouseLeave={() => setShow(false)}
+      tabIndex={0}
+      onFocus={() => setShow(true)}
+      onBlur={() => setShow(false)}
+    >
+      {children}
+      {show && (
+        <span className="absolute left-1/2 -translate-x-1/2 mt-2 px-3 py-1 rounded bg-gray-900 text-white text-xs shadow-lg z-50 whitespace-nowrap">
+          {text}
+        </span>
+      )}
+    </span>
+  );
+};
+
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -216,7 +237,15 @@ const App = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="section-title">About Me</h2>
+            <motion.h2
+              className="section-title"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              About Me
+            </motion.h2>
             <div className="w-20 h-1 bg-accent-green mx-auto rounded-full"></div>
           </motion.div>
           
@@ -276,7 +305,15 @@ const App = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="section-title">My Skills</h2>
+            <motion.h2
+              className="section-title"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              My Skills
+            </motion.h2>
             <div className="w-20 h-1 bg-accent-blue mx-auto rounded-full"></div>
           </motion.div>
 
@@ -285,36 +322,12 @@ const App = () => {
             <div className="bg-gray-800 rounded-2xl p-6 shadow-lg">
               <h3 className="text-xl font-semibold font-poppins mb-4">Full Stack Development</h3>
               <div className="grid grid-cols-2 gap-4">
-                <div className="text-center">
-                  <span className="text-gray-300">ReactJs</span>
-                  <br />
-                  <span className="text-sm text-gray-400">Intermediate</span>
-                </div>
-                <div className="text-center">
-                  <span className="text-gray-300">Bootstrap</span>
-                  <br />
-                  <span className="text-sm text-gray-400">Advanced</span>
-                </div>
-                <div className="text-center">
-                  <span className="text-gray-300">Tailwind CSS</span>
-                  <br />
-                  <span className="text-sm text-gray-400">Intermediate</span>
-                </div>
-                <div className="text-center">
-                  <span className="text-gray-300">NodeJs</span>
-                  <br />
-                  <span className="text-sm text-gray-400">Intermediate</span>
-                </div>
-                <div className="text-center">
-                  <span className="text-gray-300">JavaScript</span>
-                  <br />
-                  <span className="text-sm text-gray-400">Intermediate</span>
-                </div>
-                <div className="text-center">
-                  <span className="text-gray-300">MongoDB</span>
-                  <br />
-                  <span className="text-sm text-gray-400">Advanced</span>
-                </div>
+                <Tooltip text="React library for building UIs"> <span className="text-gray-300">ReactJs</span> </Tooltip>
+                <Tooltip text="Popular CSS framework"> <span className="text-gray-300">Bootstrap</span> </Tooltip>
+                <Tooltip text="Utility-first CSS framework"> <span className="text-gray-300">Tailwind CSS</span> </Tooltip>
+                <Tooltip text="JavaScript runtime for backend"> <span className="text-gray-300">NodeJs</span> </Tooltip>
+                <Tooltip text="Dynamic scripting language"> <span className="text-gray-300">JavaScript</span> </Tooltip>
+                <Tooltip text="NoSQL database"> <span className="text-gray-300">MongoDB</span> </Tooltip>
               </div>
             </div>
 
@@ -368,7 +381,15 @@ const App = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="section-title">Experience</h2>
+            <motion.h2
+              className="section-title"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              Experience
+            </motion.h2>
             <div className="w-20 h-1 bg-accent-green mx-auto rounded-full"></div>
           </motion.div>
 
@@ -381,7 +402,9 @@ const App = () => {
               className="bg-gray-900 p-6 rounded-lg shadow-lg"
             >
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-semibold text-accent-green">Full Stack Web Developer</h3>
+                <h3 className="text-xl font-semibold text-accent-green">
+                  <Tooltip text="Full Stack Web Developer at Unified Mentors">Full Stack Web Developer</Tooltip>
+                </h3>
                 <span className="text-gray-400">15-04-2025 - Present</span>
               </div>
               <div className="flex items-center mb-4">
@@ -413,7 +436,15 @@ const App = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="section-title">Featured Projects</h2>
+            <motion.h2
+              className="section-title"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              Featured Projects
+            </motion.h2>
             <div className="w-20 h-1 bg-accent-green mx-auto rounded-full"></div>
           </motion.div>
 
@@ -492,7 +523,15 @@ const App = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="section-title">Certifications & Additional Skills</h2>
+            <motion.h2
+              className="section-title"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              Certifications & Additional Skills
+            </motion.h2>
             <div className="w-20 h-1 bg-accent-blue mx-auto rounded-full"></div>
           </motion.div>
 
@@ -523,7 +562,15 @@ const App = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="section-title">Get in Touch</h2>
+            <motion.h2
+              className="section-title"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              Get in Touch
+            </motion.h2>
             <div className="w-20 h-1 bg-accent-blue mx-auto rounded-full"></div>
           </motion.div>
           
